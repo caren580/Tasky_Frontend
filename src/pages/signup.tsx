@@ -72,7 +72,7 @@ function SignUp() {
   return (
     <Box
       sx={{
-        backgroundColor: "#F8F4E1",
+        backgroundColor: "#E4E0E1",
         minHeight: "100vh",
         py: 8,
       }}
@@ -159,7 +159,7 @@ function SignUp() {
 
             <Button
               variant="contained"
-              sx={{ mt: 4, backgroundColor: "#B5A8D5", color: "white" }}
+              sx={{ mt: 4, backgroundColor: "#AB886D", color: "white" }}
               onClick={handleSignUp}
               disabled={isPending}
             >

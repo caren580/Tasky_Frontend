@@ -6,11 +6,12 @@ import {
   Stack,
   Button,
 } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 import { FaTasks } from "react-icons/fa";
 
 function Header() {
   return (
-    <AppBar position="sticky"  sx={{ backgroundColor: "#211C84" }}>
+    <AppBar position="sticky"  sx={{ backgroundColor: "#493628" }}>
       <Toolbar>
         <IconButton size="large" edge="start" color="inherit">
           <FaTasks />
@@ -19,15 +20,14 @@ function Header() {
           Tasky
         </Typography>
 
-        {/* NavLinks */}
         <Stack direction="row" spacing={2}>
-        <Button color="inherit" href="https://github.com">
+        <Button color="inherit" component ={RouterLink} to= "/">
             Home
           </Button>   
-          <Button color="inherit" href="https://github.com">
+          <Button color="inherit"  component={RouterLink} to="/login">
             Login
           </Button>
-          <Button color="inherit" href="https://github.com">
+          <Button color="inherit" component={RouterLink} to="/signup">
             Sign Up
           </Button>
         </Stack>

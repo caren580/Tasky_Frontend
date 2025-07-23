@@ -1,12 +1,25 @@
 import './App.css'
-import Header from './components/Header.tsx'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Header from './components/Header.tsx';
+import Home from './components/welcomePage.tsx';
+import SignUp from './pages/signup.tsx';
+import LogIn from './pages/login.tsx';
+
+const queryClient = new QueryClient();
 
 function App() {
    return (
-    <>
-      <Header />
-     
-    </>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<LogIn />} />
+        </Routes>
+      </Router>
+    </QueryClientProvider>
    )
 
 
