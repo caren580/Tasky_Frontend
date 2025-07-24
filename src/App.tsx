@@ -5,6 +5,8 @@ import Header from './components/Header.tsx';
 import Home from './components/welcomePage.tsx';
 import SignUp from './pages/signup.tsx';
 import LogIn from './pages/login.tsx';
+import NewTask from './pages/NewTask.tsx';
+import Protected from './components/Protected.tsx';
 
 const queryClient = new QueryClient();
 
@@ -17,6 +19,15 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<LogIn />} />
+          <Route
+            path="/new-task"
+            element={
+              <Protected>
+                <NewTask />
+              </Protected>
+            }
+          />
+  
         </Routes>
       </Router>
     </QueryClientProvider>

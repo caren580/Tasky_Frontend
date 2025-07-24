@@ -1,6 +1,8 @@
 function Home(){
     return (
-        <><h1>Welcome to Tasky</h1></>
+        <>
+        <h1>Welcome to Tasky</h1>
+        </>
     )
 }
 
