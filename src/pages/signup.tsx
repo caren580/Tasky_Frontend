@@ -7,7 +7,7 @@ import {
   Typography,
   Paper,
 } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import axiosInstance from "../api/axios";
@@ -31,6 +31,7 @@ function SignUp() {
   const [password, setPassword] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
   const [formError, setFormError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   
   const { isPending, mutate } = useMutation({
@@ -38,6 +39,9 @@ function SignUp() {
     mutationFn: async (registeredUser: RegisterUser) => {
       const response = await axiosInstance.post("/auth/register", registeredUser);
       return response.data;
+    },
+    onSuccess: () => {
+      navigate("/login"); 
     },
     onError: (err) => {
       if (axios.isAxiosError(err)) {

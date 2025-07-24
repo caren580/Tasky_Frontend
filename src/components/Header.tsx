@@ -5,34 +5,78 @@ import {
   Typography,
   Stack,
   Button,
+  Avatar,
 } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { FaTasks } from "react-icons/fa";
+import { useUserStore } from "../store/userStore";
+
+function stringToInitials(name: string = "") {
+  if (!name) return ""; 
+
+  const words = name.trim().split(" ");
+  const first = words[0]?.[0] || "";
+  const second = words[1]?.[0] || "";
+
+  return (first + second).toUpperCase();
+}
 
 function Header() {
+  const { user, logout } = useUserStore();
+
   return (
-    <AppBar position="sticky"  sx={{ backgroundColor: "#493628" }}>
+    <AppBar position="sticky" sx={{ backgroundColor: "#493628" }}>
       <Toolbar>
         <IconButton size="large" edge="start" color="inherit">
           <FaTasks />
         </IconButton>
+
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          Tasky
+          {user ? `Welcome, ${user.firstName}` : "Tasky"}
         </Typography>
 
-        <Stack direction="row" spacing={2}>
-        <Button color="inherit" component ={RouterLink} to= "/">
-            Home
-          </Button>   
-          <Button color="inherit"  component={RouterLink} to="/login">
-            Login
-          </Button>
-          <Button color="inherit" component={RouterLink} to="/signup">
-            Sign Up
-          </Button>
+        <Stack direction="row" spacing={2} alignItems="center">
+          {user ? (
+            <>
+              <Button color="inherit" component={RouterLink} to="/new-task">
+                New Task
+              </Button>
+              <Button color="inherit" component={RouterLink} to="/update">
+                Update
+              </Button>
+              <Button color="inherit" component={RouterLink} to="/complete">
+                Complete
+              </Button>
+              <Button color="inherit" component={RouterLink} to="/trash">
+                Trash
+              </Button>
+              <Button color="inherit" component={RouterLink} to="/profile">
+                Profile
+              </Button>
+              <Avatar sx={{ bgcolor: "#AB886D" }}>
+                {(stringToInitials(user?.firstName))}
+              </Avatar>
+              <Button color="inherit" onClick={logout}>
+                Logout
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button color="inherit" component={RouterLink} to="/">
+                Home
+              </Button>
+              <Button color="inherit" component={RouterLink} to="/login">
+                Login
+              </Button>
+              <Button color="inherit" component={RouterLink} to="/signup">
+                Sign Up
+              </Button>
+            </>
+          )}
         </Stack>
       </Toolbar>
     </AppBar>
   );
 }
+
 export default Header;

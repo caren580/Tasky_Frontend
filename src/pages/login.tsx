@@ -34,7 +34,7 @@ function LogIn() {
     },
     onSuccess: (data) => {
       console.log("login response", data);
-      login(data);
+      login(data.user);
       navigate("/");
     },
     onError: (err: any) => {

@@ -5,8 +5,8 @@ export interface User {
   id: string;
   username: string;
   emailAddress: string;
-  firstName?: string;
-  lastName?: string;
+  firstName: string;
+  lastName: string;
   isDeleted?: boolean;
 }
 
