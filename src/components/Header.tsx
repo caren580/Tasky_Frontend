@@ -38,6 +38,11 @@ function Header() {
         <Stack direction="row" spacing={2} alignItems="center">
           {user ? (
             <>
+            <Button color="inherit" component={RouterLink} to="/">
+                Home
+              </Button><Button color="inherit" component={RouterLink} to="/tasks">
+                Tasks
+              </Button>
               <Button color="inherit" component={RouterLink} to="/new-task">
                 New Task
               </Button>
@@ -50,12 +55,11 @@ function Header() {
               <Button color="inherit" component={RouterLink} to="/trash">
                 Trash
               </Button>
-              <Button color="inherit" component={RouterLink} to="/profile">
-                Profile
-              </Button>
+              <IconButton component={RouterLink} to="/profile" sx={{ p: 0 }}>
               <Avatar sx={{ bgcolor: "#AB886D" }}>
-                {(stringToInitials(user?.firstName))}
-              </Avatar>
+                {stringToInitials(user?.firstName)}
+                  </Avatar>
+                   </IconButton>
               <Button color="inherit" onClick={logout}>
                 Logout
               </Button>

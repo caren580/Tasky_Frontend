@@ -6,7 +6,9 @@ import Home from './components/welcomePage.tsx';
 import SignUp from './pages/signup.tsx';
 import LogIn from './pages/login.tsx';
 import NewTask from './pages/NewTask.tsx';
+import UpdateTask from './pages/Update.tsx';
 import Protected from './components/Protected.tsx';
+import Tasks from './pages/Tasks.tsx';
 
 const queryClient = new QueryClient();
 
@@ -27,6 +29,22 @@ function App() {
               </Protected>
             }
           />
+          <Route
+             path="/tasks"
+            element={
+               <Protected>
+                 <Tasks />
+               </Protected>
+            }
+             />
+              <Route
+             path="/update/:id"
+            element={
+               <Protected>
+                 <UpdateTask />
+               </Protected>
+            }
+             />
   
         </Routes>
       </Router>
