@@ -107,7 +107,10 @@ function NewTask() {
               type="submit"
               variant="contained"
               fullWidth
-              sx={{ mt: 3, backgroundColor: "#AB886D", color: "white" }}
+              sx={{ mt: 3,
+                 background: "linear-gradient(to right, #dd5e89, #f7bb97)",
+                boxShadow: '0 8px 25px rgba(234, 102, 232, 0.3)',
+                  color: "white" }}
               disabled={isPending}
             >
               {isPending ? "Creating Task..." : "Create Task"}

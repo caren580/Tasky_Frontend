@@ -7,8 +7,11 @@ import SignUp from './pages/signup.tsx';
 import LogIn from './pages/login.tsx';
 import NewTask from './pages/NewTask.tsx';
 import UpdateTask from './pages/Update.tsx';
+import CompletedTasks from './pages/Completed.tsx';
 import Protected from './components/Protected.tsx';
 import Tasks from './pages/Tasks.tsx';
+import TrashPage from './pages/Trash.tsx';
+import ProfilePage from './pages/Profile.tsx';
 
 const queryClient = new QueryClient();
 
@@ -42,6 +45,30 @@ function App() {
             element={
                <Protected>
                  <UpdateTask />
+               </Protected>
+            }
+             />
+             <Route
+             path="/tasks/completed"
+            element={
+               <Protected>
+                 <CompletedTasks />
+               </Protected>
+            }
+             />
+             <Route
+             path="/trash"
+            element={
+               <Protected>
+                 <TrashPage />
+               </Protected>
+            }
+             />
+             <Route
+             path="/profile"
+            element={
+               <Protected>
+                 <ProfilePage /> 
                </Protected>
             }
              />

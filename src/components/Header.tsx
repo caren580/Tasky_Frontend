@@ -25,7 +25,12 @@ function Header() {
   const { user, logout } = useUserStore();
 
   return (
-    <AppBar position="sticky" sx={{ backgroundColor: "#493628" }}>
+    <AppBar position="sticky" sx={{ 
+      
+              background: "linear-gradient(115deg, #dd5e89, #f5622dff)",
+      
+      // backgroundColor: "#1976d2"
+       }}>
       <Toolbar>
         <IconButton size="large" edge="start" color="inherit">
           <FaTasks />
@@ -43,15 +48,15 @@ function Header() {
               </Button><Button color="inherit" component={RouterLink} to="/tasks">
                 Tasks
               </Button>
-              <Button color="inherit" component={RouterLink} to="/new-task">
+              {/* <Button color="inherit" component={RouterLink} to="/new-task">
                 New Task
-              </Button>
-              <Button color="inherit" component={RouterLink} to="/update">
+              </Button> */}
+              {/* <Button color="inherit" component={RouterLink} to="/update">
                 Update
-              </Button>
-              <Button color="inherit" component={RouterLink} to="/complete">
+              </Button> */}
+              {/* <Button color="inherit" component={RouterLink} to="/tasks/completed">
                 Complete
-              </Button>
+              </Button> */}
               <Button color="inherit" component={RouterLink} to="/trash">
                 Trash
               </Button>

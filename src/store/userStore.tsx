@@ -8,10 +8,12 @@ export interface User {
   firstName: string;
   lastName: string;
   isDeleted?: boolean;
+  avatarUrl?: string;
 }
 
 interface UserState {
   user: User | null;
+  setUser: (user: User | null) => void;
   login:  (u: User) => void;
   logout: () => void;
 }
@@ -20,6 +22,7 @@ export const useUserStore = create<UserState>()(
   persist(
     (set) => ({
       user: null,
+      setUser: (user) => set({ user }),
       login:  (u) => set({ user: u }),
       logout: () => set({ user: null }),
     }),
