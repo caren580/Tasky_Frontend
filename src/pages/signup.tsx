@@ -603,8 +603,8 @@ const SignupPage: React.FC = () => {
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
-    
+    const { name, value, checked } = e.target;
+
     if (name === 'firstName') setFirstName(value);
     else if (name === 'lastName') setLastName(value);
     else if (name === 'username') setUsername(value);
