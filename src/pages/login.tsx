@@ -29,7 +29,7 @@ function LogIn() {
   const { isPending, mutate } = useMutation({
     mutationKey: ["login-user"],
     mutationFn: async (loginDetails: LoginDetails) => {
-      const response = await axiosInstance.post("/auth/login", loginDetails);
+      const response = await axiosInstance.post(`/auth/login`, loginDetails);
       return response.data;
     },
     onSuccess: (data) => {

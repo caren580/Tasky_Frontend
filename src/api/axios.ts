@@ -19,4 +19,26 @@ async function getTasks() {
 
 getTasks();
 
+
+// const API_BASE_URL = import.meta.env.VITE_API_URL;
+
+async function fetchTasks() {
+  try {
+    const response = await fetch(`${VITE_API_URL}/tasks`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error("Error fetching tasks:", error);
+  }
+}
+
+// Call the function to fetch tasks
+fetchTasks();
+
+
+
+
 export default axiosInstance
