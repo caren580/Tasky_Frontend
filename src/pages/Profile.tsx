@@ -60,8 +60,11 @@ const ProfilePage = () => {
 
   const handleUpdateInfo = async () => {
     try {
-      const res = await axiosInstance.patch("/user", formData);
-      setUser(res.data.updatedUser);
+      //const res = await axiosInstance.patch("/user", formData);
+      await axiosInstance.patch("/user", formData);
+      const { data } = await axiosInstance.get("/user");
+      setUser(data.user);
+      //setUser(res.data.updatedUser);
       setSuccess("Profile updated successfully");
       setError("");
     } catch (err) {
