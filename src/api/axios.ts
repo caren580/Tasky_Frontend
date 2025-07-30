@@ -5,8 +5,10 @@ const axiosInstance = axios.create({
      baseURL: `${VITE_API_URL}/api`,
     withCredentials: true
 })
+//   
 
-// Add response interceptor to handle 401 errors
+
+// errors
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
