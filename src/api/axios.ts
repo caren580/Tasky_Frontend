@@ -9,17 +9,17 @@ const axiosInstance = axios.create({
 
 
 // errors
-axiosInstance.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response && error.response.status === 401) {
-      // Clear user data from store
-      localStorage.removeItem('tasky_user');
-      // Redirect to login page
-      window.location.href = '/login';
-    }
-    return Promise.reject(error);
-  }
-);
+// axiosInstance.interceptors.response.use(
+//   (response) => response,
+//   (error) => {
+//     if (error.response && error.response.status === 401) {
+//       // Clear user data from store
+//       localStorage.removeItem('tasky_user');
+//       // Redirect to login page
+//       window.location.href = '/login';
+//     }
+//     return Promise.reject(error);
+//   }
+// );
 
 export default axiosInstance
