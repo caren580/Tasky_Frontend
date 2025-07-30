@@ -51,8 +51,7 @@ const SignupPage: React.FC = () => {
   const { isPending, mutate } = useMutation({
     mutationKey: ["register-user"],
     mutationFn: async (registeredUser: RegisterUser) => {
-      // 
-      const response = await axiosInstance.post(`${import.meta.env.VITE_API_URL}/auth/register`, registeredUser);
+      const response = await axiosInstance.post(`/auth/register`, registeredUser);
       return response.data;
     },
     onSuccess: () => {

@@ -9,7 +9,6 @@ export interface User {
   lastName: string;
   isDeleted?: boolean;
   avatarUrl?: string;
-  token:string;
 }
 
 interface UserState {
