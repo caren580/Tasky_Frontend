@@ -42,3 +42,38 @@ const axiosInstance = axios.create({
 
 
 export default axiosInstance
+
+
+
+// import axios from 'axios';
+
+// const VITE_API_URL = import.meta.env.VITE_API_URL;
+
+// const axiosInstance = axios.create({
+//   baseURL: VITE_API_URL,
+//   withCredentials: true,
+// });
+
+// // Optional: prevent multiple redirects
+// let hasRedirected = false;
+
+// // ✅ Add interceptor
+// axiosInstance.interceptors.response.use(
+//   (response) => response,
+//   (error) => {
+//     if (
+//       error.response &&
+//       error.response.status === 401 &&
+//       !hasRedirected
+//     ) {
+//       hasRedirected = true;
+
+//       // Redirect to login page (can customize this)
+//       window.location.href = '/login';
+//     }
+
+//     return Promise.reject(error);
+//   }
+// );
+
+// export default axiosInstance;
